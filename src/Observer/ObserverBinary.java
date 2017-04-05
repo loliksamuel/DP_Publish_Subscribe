@@ -1,3 +1,5 @@
+package Observer;
+
 public class ObserverBinary extends Observer{
 
     public ObserverBinary(Subject subject){

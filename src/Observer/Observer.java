@@ -1,3 +1,5 @@
+package Observer;
+
 //sometimes called subscriber or Listener
 public abstract class Observer {
     //sometimes called topic\channel

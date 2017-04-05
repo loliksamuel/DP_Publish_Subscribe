@@ -1,3 +1,5 @@
+package Observer;
+
 public class ObserverHexa extends Observer{
 
     public ObserverHexa(Subject subject){
