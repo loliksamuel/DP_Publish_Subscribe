@@ -1,6 +1,5 @@
 # DP_Publish_Subscribe
-Design pattern publish subscribe(also known as Observer or Listener)
-What is topic based Publish-Subscribe (Pub-Sub) design pattern?
+What is ign pattern publish subscribe(also known as Observer or Listener)?
 
 Publishers are the entities who create/publish a message on a topic. Subscribers are the entities who subscribe to messages on a topic.
 
