@@ -4,16 +4,23 @@ package ObserverOfJDK;
 public class ObservableFootballGame extends java.util.Observable {
 // implements Observable_Interface{
 
+
+
     // can be any state of the subject. like new article in site, or new goal in football game, or a new medicine in shop
-    private boolean gameStarted;
-    private boolean gameInHalfTime;
-    private boolean gameFinished;
-    private int minuiteOfGoal;
-    private int goalsTeamHome;
-    private int goalsTeamVisitor;
-    private boolean newGoalForTeamHome;
-    private boolean newGoalForTeamVisitor;
-    private String results;
+    private String name = "2017 Finals in England. game between liverpool and totenham";
+    private boolean gameStarted=false;
+    private boolean gameInHalfTime=false;
+    private boolean gameFinished=false;
+    private int minuiteOfGoal=-1;
+    private int goalsTeamHome=0;
+    private int goalsTeamVisitor=0;
+    private boolean newGoalForTeamHome=false;
+    private boolean newGoalForTeamVisitor=false;
+    private String results="0:0";
+
+    public String getName() {
+        return name;
+    }
 
     public void setGameStarted(boolean gameStarted) {
         this.gameStarted = gameStarted;
@@ -24,13 +31,13 @@ public class ObservableFootballGame extends java.util.Observable {
     public void setGameInHalfTime(boolean gameInHalfTime) {
         this.gameInHalfTime = gameInHalfTime;
         setChanged();
-        notifyObservers("45 minuites finished. half time result is "+goalsTeamHome+":"+goalsTeamVisitor);
+        notifyObservers("45 minuites finished.         half time result is "+goalsTeamHome+":"+goalsTeamVisitor+" to be continued....");
     }
 
     public void setGameFinished(boolean gameFinished) {
         this.gameFinished = gameFinished;
         setChanged();
-        notifyObservers("game has finished. final result is "+goalsTeamHome+":"+goalsTeamVisitor);
+        notifyObservers("this amazing game has finished. ..final result is "+goalsTeamHome+":"+goalsTeamVisitor +". thank you.");
     }
 
 
