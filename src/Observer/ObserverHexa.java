@@ -2,7 +2,7 @@ package Observer;
 
 public class ObserverHexa extends Observer{
 
-    public ObserverHexa(Subject subject){
+    public ObserverHexa(ObservableTopic subject){
         this.subject = subject;
     }
 

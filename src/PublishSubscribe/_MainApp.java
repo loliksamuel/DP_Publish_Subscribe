@@ -6,44 +6,120 @@ package PublishSubscribe;
 public class _MainApp {
     public static void main(String[] args) {
 
-        Subject topic = new Subject();//create subject
-         //create 3 observers or subscribers or listeners
-        Observer subscriber1 = new Observer.ObserverBinary(topic);
-        Observer subscriber2 = new Observer.ObserverOctal(topic);
-        Observer subscriber3 = new Observer.ObserverHexa(topic);
+        //Instantiate publishers, subscribers and PubSubService
+        Publisher_Interface javaPublisher   = new Publisher_Impl();
+        Publisher_Interface pythonPublisher = new Publisher_Impl();
 
-        System.out.println( "after subscribing 3 subscribers,");
-        topic.attach(subscriber1);
-        topic.attach(subscriber2);
-        topic.attach(subscriber3);
-        System.out.println( "all 3 will get updates:");
-        //change the topic
-        topic.setState(1);
-        topic.setState(10);
-        topic.setState(15);
+        Subscriber javaLover         = new SubscriberImpl();
+        Subscriber allLanguagesLover = new SubscriberImpl();
+        Subscriber pythonLover       = new SubscriberImpl();
 
-        System.out.println( "after removing subscriber #1,");
-        topic.detach(subscriber1);
-        System.out.println( "only 2 and 3 will get updates:");
-        topic.setState(1);
-        topic.setState(2);
-        topic.setState(30);
+        PubSubService pubSubService = new PubSubService();
 
+        //Declare Messages and Publish Messages to PubSubService
+        Message javaMsg1 = new Message("Java", "Core Java Concepts");
+        Message javaMsg2 = new Message("Java", "Spring MVC : Dependency Injection and AOP");
+        Message javaMsg3 = new Message("Java", "JPA & Hibernate");
 
-        String a= new String("a");
-        String b= new String("a");
-        System.out.println( "hashcode of a and b are equals? "+ a.hashCode());
-        System.out.println( "a.hashCode()="+ a.hashCode());
-        System.out.println( "b.hashCode()="+ b.hashCode());
+        javaPublisher.publish(javaMsg1, pubSubService);
+        javaPublisher.publish(javaMsg2, pubSubService);
+        javaPublisher.publish(javaMsg3, pubSubService);
 
-        System.out.println( "a equals b ? "+ a.equals(b));
-        System.out.println( "a == b ? "+ (a==b));
+        Message pythonMsg1 = new Message("Python", "Easy and Powerful programming language");
+        Message pythonMsg2 = new Message("Python", "Advanced Python message");
 
-         a= "a";
-         b= "a";
+        pythonPublisher.publish(pythonMsg1, pubSubService);
+        pythonPublisher.publish(pythonMsg2, pubSubService);
 
-        System.out.println( "a equals b ? "+ a.equals(b));
-        System.out.println( "a == b ? "+ (a==b));
+        //Declare Subscribers
+        javaLover.subscribe("Java",pubSubService);		//Java subscriber only subscribes to Java topics
+        pythonLover.subscribe("Python",pubSubService);   //Python subscriber only subscribes to Python topics
+        allLanguagesLover.subscribe("Java", pubSubService);	//all subscriber, subscribes to both Java and Python
+        allLanguagesLover.subscribe("Python", pubSubService);
 
+        //Trying unSubscribing a subscriber
+        pythonLover.unSubscribe("Python", pubSubService);
+
+        //Broadcast message to all subscribers. After broadcastToAll, messageQueue will be empty in PubSubService
+        pubSubService.broadcastToAll();
+        System.out.println("broadcast To All successfully Done");
+
+        //Print messages of each subscriber to see which messages they got
+        System.out.println("Messages of Java Subscriber are: ");
+        javaLover.printMyMessages();
+
+        System.out.println("\nMessages of Python Subscriber after unsubscription are: ");
+        pythonLover.printMyMessages();
+
+        System.out.println("\nMessages of All Languages Subscriber are: ");
+        allLanguagesLover.printMyMessages();
+
+        //After broadcastToAll the messagesQueue will be empty, so publishing new messages to server
+        System.out.println("\nPublishing 2 more Java Messages...");
+        Message javaMsg4 = new Message("Java", "JSP and Servlets");
+        Message javaMsg5 = new Message("Java", "Struts framework");
+
+        javaPublisher.publish(javaMsg4, pubSubService);
+        javaPublisher.publish(javaMsg5, pubSubService);
+
+        javaLover.getMessagesForSubscriberOfTopic("Java", pubSubService);
+        System.out.println("\nMessages of Java Subscriber now are: ");
+        javaLover.printMyMessages();
     }
+
+    /**
+     *
+     1  1
+     2  10
+     3  11
+     4  100
+     5  101
+     6  110
+     7  111
+     8  1000
+     900
+     10
+     11
+     12
+     13
+     14
+     15
+     16
+     17
+     18
+     19
+     20
+     21
+     22
+     23
+     24
+     Messages of Java Subscriber are:
+     Message Topic -> Java : Core Java Concepts
+     Message Topic -> Java : Spring MVC : Dependency Injection and AOP
+     Message Topic -> Java : JPA & Hibernate
+
+     Messages of Python Subscriber are:
+     Message Topic -> Python : Easy and Powerful programming language
+     Message Topic -> Python : Advanced Python message
+
+     Messages of All Languages Subscriber are:
+     Message Topic -> Java : Core Java Concepts
+     Message Topic -> Java : Spring MVC : Dependency Injection and AOP
+     Message Topic -> Java : JPA & Hibernate
+     Message Topic -> Python : Easy and Powerful programming language
+     Message Topic -> Python : Advanced Python message
+
+     Publishing 2 more Java Messages...
+
+     Messages of Java Subscriber now are:
+     Message Topic -> Java : Core Java Concepts
+     Message Topic -> Java : Spring MVC : Dependency Injection and AOP
+     Message Topic -> Java : JPA & Hibernate
+     Message Topic -> Java : JSP and Servlets
+     Message Topic -> Java : Struts framework
+
+
+
+
+     */
 }

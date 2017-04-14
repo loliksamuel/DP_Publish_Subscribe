@@ -2,7 +2,7 @@ package Observer;
 
 public class ObserverBinary extends Observer{
 
-    public ObserverBinary(Subject subject){
+    public ObserverBinary(ObservableTopic subject){
         this.subject = subject;
     }
 

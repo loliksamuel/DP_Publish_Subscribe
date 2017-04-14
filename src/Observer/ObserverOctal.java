@@ -2,7 +2,7 @@ package Observer;
 
 public class ObserverOctal extends Observer{
 
-    public ObserverOctal(Subject subject){
+    public ObserverOctal(ObservableTopic subject){
         this.subject = subject;
     }
 

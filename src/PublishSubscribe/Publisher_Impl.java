@@ -1,6 +1,8 @@
 package PublishSubscribe;
 
-public interface Publisher_Impl<E> {
+public class Publisher_Impl implements Publisher_Interface {
     //Publishes new message to PubSubService
-    void publish(Message message, PubSubService pubSubService);
+    public void publish(Message message, PubSubService pubSubService) {
+        pubSubService.addMessageToQueue(message);
+    }
 }
