@@ -1,9 +1,7 @@
 package ObserverOfJDK;
 
-import java.util.Observable;
-
 //sometimes called topic\subject\channel
-public class ObservableFootballGame extends Observable {
+public class ObservableFootballGame extends java.util.Observable {
 // implements Observable_Interface{
 
     // can be any state of the subject. like new article in site, or new goal in football game, or a new medicine in shop
