@@ -8,9 +8,9 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
-public class PubSubService {
+public class PubSubService implements PubSubService_Interface {
     //Keeps a map of topic per set of subscriber (using set to prevent duplicates)
-    Map<String, Set<Subscriber>> subscribersTopicMap = new HashMap<String, Set<Subscriber>>();
+    Map<String, Set<Subscriber>> topic2SubscriberMap = new HashMap<String, Set<Subscriber>>();
 
     //Holds messages published by publishers
     Queue<Message> messagesQueue = new LinkedList<Message>();
@@ -23,24 +23,24 @@ public class PubSubService {
     //Add a new Subscriber for a topic
     public void addSubscriber(String topic, Subscriber subscriber){
 
-        if(subscribersTopicMap.containsKey(topic)){
-            Set<Subscriber> subscribers = subscribersTopicMap.get(topic);
+        if(topic2SubscriberMap.containsKey(topic)){
+            Set<Subscriber> subscribers = topic2SubscriberMap.get(topic);
             subscribers.add(subscriber);
-            subscribersTopicMap.put(topic, subscribers);
+            topic2SubscriberMap.put(topic, subscribers);
         }else{
             Set<Subscriber> subscribers = new HashSet<Subscriber>();
             subscribers.add(subscriber);
-            subscribersTopicMap.put(topic, subscribers);
+            topic2SubscriberMap.put(topic, subscribers);
         }
     }
 
     //Remove an existing subscriber for a topic
     public void removeSubscriber(String topic, Subscriber subscriber){
 
-        if(subscribersTopicMap.containsKey(topic)){
-            Set<Subscriber> subscribers = subscribersTopicMap.get(topic);
-            subscribers.remove(subscriber);
-            subscribersTopicMap.put(topic, subscribers);
+        if(topic2SubscriberMap.containsKey(topic)){
+            Set<Subscriber> subscribersNewSet = topic2SubscriberMap.get(topic);
+            subscribersNewSet.remove(subscriber);
+            topic2SubscriberMap.put(topic, subscribersNewSet);
         }
     }
 
@@ -53,7 +53,7 @@ public class PubSubService {
                 Message message = messagesQueue.remove();
                 String topic = message.getTopic();
 
-                Set<Subscriber> subscribersOfTopic = subscribersTopicMap.get(topic);
+                Set<Subscriber> subscribersOfTopic = topic2SubscriberMap.get(topic);
 
                 for(Subscriber subscriber : subscribersOfTopic){
                     //add broadcasted message to subscribers message queue
@@ -75,7 +75,7 @@ public class PubSubService {
 
                 if(message.getTopic().equalsIgnoreCase(topic)){
 
-                    Set<Subscriber> subscribersOfTopic = subscribersTopicMap.get(topic);
+                    Set<Subscriber> subscribersOfTopic = topic2SubscriberMap.get(topic);
 
                     for(Subscriber _subscriber : subscribersOfTopic){
                         if(_subscriber.equals(subscriber)){
@@ -83,6 +83,7 @@ public class PubSubService {
                             List<Message> subscriberMessages = subscriber.getMyMessages();
                             subscriberMessages.add(message);
                             subscriber.setMyMessages(subscriberMessages);
+                            subscriber.update(topic,this);
                         }
                     }
                 }

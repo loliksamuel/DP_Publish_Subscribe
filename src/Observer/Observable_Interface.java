@@ -10,13 +10,13 @@ public interface Observable_Interface {
     //we notify all subscribers for every change in state
     public void setState(int state) ;
 
-    //sometimes called attach/register/subscribe/addObserver/addListener()
+    //sometimes called attach/register/subscribe/addObserver/addXXXListener()
     public void addObserver(Observer observer);
 
-    //sometimes called detach/unregister/unsubscribe/removeObserver/removeListener()
+    //sometimes called detach/unregister/unsubscribe/removeObserver/removeXXXListener()
     public void removeObserver(Observer observer);
 
-    //sometimes called publishAllSubscribers/fire()
+    //sometimes called publishAllSubscribers/fireXXXStateChanged()
     public void notifyAllObservers();
 
     public int countObservers();

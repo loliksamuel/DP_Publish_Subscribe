@@ -28,6 +28,6 @@ public abstract class Subscriber {
     public abstract void unSubscribe(String topic, PubSubService pubSubService);
 
     //Request specifically for messages related to topic from PubSubService
-    public abstract void getMessagesForSubscriberOfTopic(String topic, PubSubService pubSubService);
+    public abstract void update(String topic, PubSubService pubSubService);
 
 }

@@ -13,14 +13,20 @@ public class _MainApp {
         Observer subscriber3 = new ObserverHexa(topic);
 
         System.out.println( "after subscribing 3 subscribers,");
+        topic.addObserver(new Observer() {
+            @Override
+            public void update() {
+                System.out.println("update2observer");
+            }
+        });
         topic.addObserver(subscriber1);
         topic.addObserver(subscriber2);
         topic.addObserver(subscriber3);
         System.out.println( "all 3 will get updates:");
-        //change the topic
-        topic.setState(1);
-        topic.setState(10);
-        topic.setState(15);
+
+        topic.setState( 1);//change the topic to 1
+        topic.setState(10);//change the topic to 10
+        topic.setState(15);//change the topic to 15
 
         System.out.println( "after removing subscriber #1,");
         topic.removeObserver(subscriber1);

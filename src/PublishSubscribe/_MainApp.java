@@ -62,7 +62,7 @@ public class _MainApp {
         javaPublisher.publish(javaMsg4, pubSubService);
         javaPublisher.publish(javaMsg5, pubSubService);
 
-        javaLover.getMessagesForSubscriberOfTopic("Java", pubSubService);
+        javaLover.update("Java", pubSubService);
         System.out.println("\nMessages of Java Subscriber now are: ");
         javaLover.printMyMessages();
     }

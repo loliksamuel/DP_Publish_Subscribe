@@ -23,17 +23,15 @@ public class ObservableTopic implements Observable_Interface{
         notifyAllObservers();
     }
 
-    //sometimes called register/subscribe/addListener()
+    //sometimes called register/subscribe/addXXXListener()
     public void addObserver(Observer observer){
         observers.add(observer);
     }
-
-    //sometimes called unregister/removeSubscriber
+    //sometimes called unregister/removeSubscriber/removeXXXListener()
     public void removeObserver(Observer observer){
         observers.remove(observer);
     }
-
-    //sometimes called publishAllSubscribers/fire()
+    //sometimes called publishAllSubscribers/fireXXXStateChanged()
     public void notifyAllObservers(){
         for (Observer observer : observers) {
             observer.update();
