@@ -1,4 +1,4 @@
-package Observer;
+package PublishSubscribeOfMe;
 
 public class ObserverBinary extends Observer{
 

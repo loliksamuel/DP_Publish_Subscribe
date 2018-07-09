@@ -1,4 +1,4 @@
-package Observer;
+package PublishSubscribeOfMe;
 
 //sometimes called subscriber or Listener
 public abstract class Observer {

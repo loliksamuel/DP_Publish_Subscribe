@@ -1,4 +1,4 @@
-package Observer;
+package PublishSubscribeOfMe;
 
 /**
  * Created by lolik on 2017-04-14.

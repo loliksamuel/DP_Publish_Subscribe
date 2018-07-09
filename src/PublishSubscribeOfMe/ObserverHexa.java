@@ -1,4 +1,4 @@
-package Observer;
+package PublishSubscribeOfMe;
 
 public class ObserverHexa extends Observer{
 

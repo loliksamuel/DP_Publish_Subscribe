@@ -1,4 +1,4 @@
-package PublishSubscribe;
+package PublishSubscribeWithService;
 
 /**
  * Created by lolik on 2017-04-01.

@@ -8,7 +8,7 @@ public class ObservableBasketballGame extends java.util.Observable {
 
     // can be any state of the subject. like new article in site, or new goal in football game, or a new medicine in shop
     private String name = "2017 NBA Finals . game between cleavelenad and goldenstate";
-    private boolean gameStarted=false;
+    private boolean gameStarted   =false;
     private boolean gameInHalfTime=false;
     private boolean gameFinished=false;
     private int minuiteOfBasket=-1;

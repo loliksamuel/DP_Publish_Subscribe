@@ -1,4 +1,4 @@
-package Observer;
+package PublishSubscribeOfMe;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +33,7 @@ public class ObservableTopic implements Observable_Interface{
     }
     //sometimes called publishAllSubscribers/fireXXXStateChanged()
     public void notifyAllObservers(){
-        for (Observer observer : observers) {
+        for (Observer observer:observers) {
             observer.update();
         }
     }

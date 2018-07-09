@@ -1,4 +1,4 @@
-package PublishSubscribe;
+package PublishSubscribeWithService;
 
 public interface Publisher_Interface {
     //Publishes new message to PubSubService

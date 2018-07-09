@@ -1,4 +1,4 @@
-package PublishSubscribe;
+package PublishSubscribeWithService;
 
 import java.util.HashMap;
 import java.util.HashSet;

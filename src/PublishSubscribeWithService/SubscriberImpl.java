@@ -1,10 +1,8 @@
-package PublishSubscribe;
+package PublishSubscribeWithService;
 
 public class SubscriberImpl extends Subscriber{
     // subscribe with PubSubService for a topic
-    public void subscribe(String topic, PubSubService pubSubService){
-        pubSubService.addSubscriber(topic, this);
-    }
+    public void subscribe(String topic, PubSubService pubSubService) { pubSubService.addSubscriber(topic, this);   }
 
     //Unsubscribe from a topic
     public void unSubscribe(String topic, PubSubService pubSubService){
@@ -12,7 +10,7 @@ public class SubscriberImpl extends Subscriber{
     }
 
     //Request specifically for messages related to topic from PubSubService
-    public void update(String topic, PubSubService pubSubService) { pubSubService.broadcastToSubscriberOfTopic(topic, this);
+    public void update(String topic, PubSubService pubSubService)      { pubSubService.broadcastToSubscriberOfTopic(topic, this);
 
     }
 }

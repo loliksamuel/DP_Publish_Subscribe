@@ -1,4 +1,4 @@
-package PublishSubscribe;
+package PublishSubscribeWithService;
 
 /**
  * replace the Observable_Interface in observer design pattern
