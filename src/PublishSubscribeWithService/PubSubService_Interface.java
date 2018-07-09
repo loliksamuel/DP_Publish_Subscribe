@@ -1,7 +1,8 @@
 package PublishSubscribeWithService;
 
 /**
- * replace the Observable_Interface in observer design pattern
+ * sometimes called Observable_Interface in observer design pattern
+ * sometimes called Message broker
  */
 public interface PubSubService_Interface {
 
