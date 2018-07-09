@@ -7,7 +7,23 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
+/*Advantages:
+Loose coupling
+Publishers are loosely coupled to subscribers,
+and need not even know of their existence.
+With the topic being the focus,
+publishers and subscribers are allowed to remain ignorant of system topology.
+Each can continue to operate normally regardless of the other. In the traditional tightly coupled client–server paradigm,
+the client cannot post messages to the server while the server process is not running,
+nor can the server receive messages unless the client is running.
 
+Scalability
+Provides the opportunity for better scalability than traditional client–server,
+through parallel operation, message caching, tree-based or network-based routing, etc.
+However, in certain types of tightly coupled, high-volume enterprise environments,
+as systems scale up to become data centers with thousands of servers sharing the pub/sub infrastructure,
+current vendor systems often lose this benefit; scalability for pub/sub products under high load in these contexts is a research challenge.
+* */
 public class PubSubService implements PubSubService_Interface {
     //Keeps a map of topic per set of subscriber (using set to prevent duplicates)
     Map<String, Set<Subscriber>> topic2SubscriberMap = new HashMap<String, Set<Subscriber>>();
