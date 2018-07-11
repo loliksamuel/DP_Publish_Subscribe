@@ -1,12 +1,9 @@
-package PublishSubscribeWithMessageBroker;
+package PublishSubscribeWithMessageBrokerWithBlockingQueue;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+
 /* PubSubService
 sometimes called
    Observable_Interface in observer design pattern
@@ -34,11 +31,16 @@ public class PubSubService implements PubSubService_Interface {
     Map<String, Set<Subscriber>> topic2SubscriberMap = new HashMap<String, Set<Subscriber>>();
 
     //Holds messages published by publishers. should use LinkedBlockingQueue for thread safety
-    Queue<Message> messagesQueue = new LinkedList<Message>();
+    BlockingQueue<Message> messagesQueue = new LinkedBlockingQueue<>();
 
     //Adds message sent by publisher to queue
-    public void addMessageToQueue(Message message){
-        messagesQueue.add(message);
+    public void addMessageToQueue(Message message) throws InterruptedException {
+        messagesQueue.put(message);
+    }
+
+    //get message sent by publisher to queue
+    public Message getMessageFromQueue() throws InterruptedException {
+        return messagesQueue.take();
     }
 
     //Add a new Subscriber for a topic
@@ -87,7 +89,7 @@ public class PubSubService implements PubSubService_Interface {
     }
 
     //Sends messages about a topic for subscriber at any point
-    public void broadcastToSubscriberOfTopic(String topic, Subscriber subscriber) {
+    public void broadcastToSubscriberOfTopic(String topic, Subscriber subscriber) throws InterruptedException {
         if(messagesQueue.isEmpty()){
             System.out.println("No messages from publishers to display");
         }else{

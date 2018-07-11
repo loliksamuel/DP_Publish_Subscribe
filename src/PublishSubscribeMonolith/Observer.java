@@ -9,6 +9,6 @@ public abstract class Observer {
     public void register(){
         subject.addObserver(this);
     }
-    //sometimes called fireXXX/actionPerformed/publish\onEvent  this fuction get executed when a new update\event occur
+    //sometimes called fireXXX/actionPerformed/publish\onEvent  this fuction get executed when a new getUpdates\event occur
     public abstract void update();
 }

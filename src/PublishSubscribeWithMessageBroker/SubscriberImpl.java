@@ -10,7 +10,7 @@ public class SubscriberImpl extends Subscriber{
     }
 
     //Request specifically for messages related to topic from PubSubService
-    public void update(String topic, PubSubService pubSubService)      { pubSubService.broadcastToSubscriberOfTopic(topic, this);
+    public void getUpdates(String topic, PubSubService pubSubService)      { pubSubService.broadcastToSubscriberOfTopic(topic, this);
 
     }
 }

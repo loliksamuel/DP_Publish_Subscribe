@@ -8,6 +8,6 @@ public class ObserverOctal extends Observer{
 
     @Override
     public void update() {
-        System.out.println( "new update in mail: Octal String changed to: " + Integer.toOctalString( subject.getState() ) +"("+subject.getState()+")" );
+        System.out.println( "new getUpdates in mail: Octal String changed to: " + Integer.toOctalString( subject.getState() ) +"("+subject.getState()+")" );
     }
 }

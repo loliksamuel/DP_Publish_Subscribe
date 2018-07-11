@@ -8,6 +8,6 @@ public class ObserverHexa extends Observer{
 
     @Override
     public void update() {
-        System.out.println( "new update in mail: Hex String changed to: " + Integer.toHexString( subject.getState() ).toUpperCase() +"("+subject.getState()+")" );
+        System.out.println( "new getUpdates in mail: Hex String changed to: " + Integer.toHexString( subject.getState() ).toUpperCase() +"("+subject.getState()+")" );
     }
 }

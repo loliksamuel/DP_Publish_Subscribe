@@ -1,4 +1,4 @@
-package PublishSubscribeWithMessageBroker;
+package PublishSubscribeWithMessageBrokerWithBlockingQueue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public abstract class Subscriber {
     //Unsubscribe from topic using PubSubService
     public abstract void unSubscribe(String topic, PubSubService pubSubService);
 
-    //Request specifically for messages related to topic from PubSubService. sometimes called update or consume
-    public abstract void getUpdates(String topic, PubSubService pubSubService);
+    //Request specifically for messages related to topic from PubSubService
+    public abstract Message getUpdates(String topic, PubSubService_Interface pubSubService) throws InterruptedException;
 
 }
