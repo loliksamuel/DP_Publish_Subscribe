@@ -34,7 +34,7 @@ public class ObservableTopic implements Observable_Interface{
     //sometimes called publishAllSubscribers/fireXXXStateChanged()
     public void notifyAllObservers(){
         for (Observer observer:observers) {
-            observer.update();
+             observer.update();
         }
     }
 

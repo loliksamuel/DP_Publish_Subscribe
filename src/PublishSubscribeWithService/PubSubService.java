@@ -7,7 +7,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
-/*Advantages:
+/* PubSubService
+sometimes called
+   Observable_Interface in observer design pattern
+or ProducerConsumerService
+or Message broker
+Advantages:
 Loose coupling
 Publishers are loosely coupled to subscribers,
 and need not even know of their existence.
