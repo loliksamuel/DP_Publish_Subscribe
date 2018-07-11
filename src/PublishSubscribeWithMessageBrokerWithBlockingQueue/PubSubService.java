@@ -28,10 +28,10 @@ current vendor systems often lose this benefit; scalability for pub/sub products
 * */
 public class PubSubService implements PubSubService_Interface {
     //Keeps a map of topic per set of subscriber (using set to prevent duplicates)
-    Map<String, Set<Subscriber>> topic2SubscriberMap = new HashMap<String, Set<Subscriber>>();
+    private Map<String, Set<Subscriber>> topic2SubscriberMap = new HashMap<String, Set<Subscriber>>();
 
     //Holds messages published by publishers. should use LinkedBlockingQueue for thread safety
-    BlockingQueue<Message> messagesQueue = new LinkedBlockingQueue<>();
+    private BlockingQueue<Message> messagesQueue = new LinkedBlockingQueue<>();
 
     //Adds message sent by publisher to queue
     public void addMessageToQueue(Message message) throws InterruptedException {

@@ -6,8 +6,8 @@ import java.util.logging.Logger;
 
 public class SubscriberImpl extends Subscriber implements Runnable{
 
-    PubSubService_Interface pubSubService;
-    String topic = null;
+    private PubSubService_Interface pubSubService;
+    private String topic = null;
 
     public SubscriberImpl(PubSubService_Interface pubSubService, String topic){
         this.pubSubService=pubSubService;
@@ -38,7 +38,7 @@ public class SubscriberImpl extends Subscriber implements Runnable{
 
             try {
                 Message msg = getUpdates(topic, pubSubService);
-                System.out.println("consumed : "+msg.getTopic()+" : "+msg.getPayload());
+                System.out.println("        consumed : "+msg.getTopic()+" : "+msg.getPayload());
             } catch (InterruptedException e) {
                 Logger.getLogger(Consumer.class.getName()).log(Level.SEVERE, null, e);
             }

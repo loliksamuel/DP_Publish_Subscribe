@@ -31,7 +31,7 @@ public class Publisher_Impl implements Runnable, Publisher_Interface {
                 Message message = new Message(topic, ""+i);
                 publish(message, pubSubService);
                 //sharedQueue.put("published : "+i);
-                System.out.println("       published :"+topic+" : "+i);
+                System.out.println("published :"+topic+" : "+i);
             } catch (InterruptedException e) {
                 Logger.getLogger(Consumer.class.getName()).log(Level.SEVERE, null, e);
             }
