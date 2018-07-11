@@ -1,4 +1,4 @@
-package PublishSubscribeOfMe;
+package PublishSubscribeMonolith;
 
 import java.util.ArrayList;
 import java.util.List;

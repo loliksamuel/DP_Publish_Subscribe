@@ -1,4 +1,4 @@
-package PublishSubscribeWithService;
+package PublishSubscribeWithMessageBroker;
 
 import java.util.ArrayList;
 import java.util.List;

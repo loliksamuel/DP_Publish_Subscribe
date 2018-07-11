@@ -1,4 +1,4 @@
-package ObserverOfJDK;
+package PublishSubscribeMonolithJDK;
 import java.util.Observable;
 
 public class ObserverFootball implements java.util.Observer{

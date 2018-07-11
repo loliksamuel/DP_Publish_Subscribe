@@ -1,4 +1,4 @@
-package PublishSubscribeWithService;
+package PublishSubscribeWithMessageBroker;
 
 public class SubscriberImpl extends Subscriber{
     // subscribe with PubSubService for a topic

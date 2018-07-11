@@ -1,4 +1,4 @@
-package ObserverOfJDK;
+package PublishSubscribeMonolithJDK;
 
 import java.util.Observable;
 import java.util.Observer;

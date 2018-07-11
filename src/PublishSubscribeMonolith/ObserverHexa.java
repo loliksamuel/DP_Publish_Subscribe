@@ -1,4 +1,4 @@
-package PublishSubscribeOfMe;
+package PublishSubscribeMonolith;
 
 public class ObserverHexa extends Observer{
 

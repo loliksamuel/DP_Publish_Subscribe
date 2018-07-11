@@ -1,4 +1,4 @@
-package ProducerConsumerWithBlockingQueue;
+package PublishSubscribeWithBlockingQueue;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.logging.Level;

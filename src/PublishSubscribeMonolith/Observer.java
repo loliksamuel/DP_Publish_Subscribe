@@ -1,4 +1,4 @@
-package PublishSubscribeOfMe;
+package PublishSubscribeMonolith;
 
 //sometimes called subscriber or Listener
 public abstract class Observer {

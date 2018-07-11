@@ -1,4 +1,4 @@
-package PublishSubscribeWithService;
+package PublishSubscribeWithMessageBroker;
 
 /**
  * sometimes called Observable_Interface in observer design pattern

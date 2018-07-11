@@ -1,4 +1,4 @@
-package ObserverOfJDK;
+package PublishSubscribeMonolithJDK;
 
 //sometimes called topic\subject\channel
 public class ObservableFootballGame extends java.util.Observable {
