@@ -33,7 +33,7 @@ public class PubSubService implements PubSubService_Interface {
     //Keeps a map of topic per set of subscriber (using set to prevent duplicates)
     Map<String, Set<Subscriber>> topic2SubscriberMap = new HashMap<String, Set<Subscriber>>();
 
-    //Holds messages published by publishers
+    //Holds messages published by publishers. should use LinkedBlockingQueue for thread safety
     Queue<Message> messagesQueue = new LinkedList<Message>();
 
     //Adds message sent by publisher to queue
