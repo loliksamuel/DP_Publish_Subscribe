@@ -7,9 +7,11 @@ import java.util.logging.Logger;
 public class SubscriberImpl extends Subscriber implements Runnable{
 
     PubSubService_Interface pubSubService;
+    String topic = null;
 
-    public SubscriberImpl(PubSubService_Interface pubSubService){
+    public SubscriberImpl(PubSubService_Interface pubSubService, String topic){
         this.pubSubService=pubSubService;
+        this.topic = topic;
     }
 
     // subscribe with PubSubService for a topic
@@ -31,7 +33,7 @@ public class SubscriberImpl extends Subscriber implements Runnable{
 
     @Override
     public void run() {
-        String topic = "java";
+
         while(true){
 
             try {

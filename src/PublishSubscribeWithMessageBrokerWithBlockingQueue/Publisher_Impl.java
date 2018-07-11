@@ -9,11 +9,12 @@ public class Publisher_Impl implements Runnable, Publisher_Interface {
 
 
     private PubSubService_Interface pubSubService = null;
+    private String topic;
 
 
-
-    public Publisher_Impl(PubSubService_Interface pubSubService){
+    public Publisher_Impl(PubSubService_Interface pubSubService, String topic){
         this.pubSubService = pubSubService;
+        this.topic = topic;
     }
 
 
@@ -25,12 +26,12 @@ public class Publisher_Impl implements Runnable, Publisher_Interface {
 
     @Override
     public void run() {
-        for (int i=0; i<100; i++){
+        for (int i=0; i<10; i++){
             try {
-                Message message = new Message("java", ""+i);
+                Message message = new Message(topic, ""+i);
                 publish(message, pubSubService);
                 //sharedQueue.put("published : "+i);
-                System.out.println("published : "+i);
+                System.out.println("       published :"+topic+" : "+i);
             } catch (InterruptedException e) {
                 Logger.getLogger(Consumer.class.getName()).log(Level.SEVERE, null, e);
             }

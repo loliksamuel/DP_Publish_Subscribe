@@ -6,14 +6,19 @@ package PublishSubscribeWithMessageBrokerWithBlockingQueue;
 public class _MainApp {
     public static void main(String[] args) {
         PubSubService_Interface ps = new PubSubService();
-        Publisher_Impl prod = new Publisher_Impl(ps);
-        SubscriberImpl cons = new SubscriberImpl(ps);
+        Publisher_Impl prodJava = new Publisher_Impl(ps, "java Topic");
+        SubscriberImpl consJava = new SubscriberImpl(ps, "java Topic");
+        Publisher_Impl prodScala = new Publisher_Impl(ps, "scala Topic");
+        SubscriberImpl consScala = new SubscriberImpl(ps, "scala Topic");
 
-
-        Thread prodThread = new Thread(prod);
-        Thread consThread = new Thread(cons);
-        prodThread.start();
-        consThread.start();
+        Thread prodThreadJ = new Thread(prodJava);
+        Thread consThreadJ = new Thread(consJava);
+        Thread prodThreadS = new Thread(prodScala);
+        Thread consThreadS = new Thread(consScala);
+        prodThreadJ.start();
+        consThreadJ.start();
+        prodThreadS.start();
+        consThreadS.start();
     }
 
     /**
