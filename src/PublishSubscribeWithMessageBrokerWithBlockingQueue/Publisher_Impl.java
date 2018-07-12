@@ -1,6 +1,5 @@
 package PublishSubscribeWithMessageBrokerWithBlockingQueue;
 
-import java.util.concurrent.BlockingQueue;
 import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -8,19 +7,20 @@ import java.util.logging.Logger;
 public class Publisher_Impl implements Runnable, Publisher_Interface {
 
 
-    private PubSubService_Interface pubSubService = null;
-    private String topic;
+    private MsgBroker_Interface pubSubService = null;
 
+    private Topic topic;
 
-    public Publisher_Impl(PubSubService_Interface pubSubService, String topic){
+    public Publisher_Impl(MsgBroker_Interface pubSubService, Topic topic){
         this.pubSubService = pubSubService;
+
         this.topic = topic;
     }
 
 
-    //Publishes new message to PubSubService
-    public void publish(Message message, PubSubService_Interface pubSubService) throws InterruptedException {
-        pubSubService.addMessageToQueue(message);
+    //Publishes new message to MsgBroker
+    public void publish(Message message, MsgBroker_Interface pubSubService) throws InterruptedException {
+        pubSubService.addMessageToQueue(topic, message);
     }
 
 
@@ -28,10 +28,11 @@ public class Publisher_Impl implements Runnable, Publisher_Interface {
     public void run() {
         for (int i=0; i<10; i++){
             try {
-                Message message = new Message(topic, ""+i);
-                publish(message, pubSubService);
+                Message message = new Message(topic.getName(), ""+i);
+                publish(message, pubSubService  );
                 //sharedQueue.put("published : "+i);
-                System.out.println("published :"+topic+" : "+i);
+                Thread.sleep(10);
+                System.out.println("published :"+ topic.getName() +" : "+i);
             } catch (InterruptedException e) {
                 Logger.getLogger(Consumer.class.getName()).log(Level.SEVERE, null, e);
             }

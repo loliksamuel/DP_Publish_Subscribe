@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
-/* PubSubService
+/* MsgBroker
 sometimes called
    Observable_Interface in observer design pattern
 or ProducerConsumerService

@@ -1,11 +1,11 @@
 # DP_Publish_Subscribe
 What is ign pattern publish subscribe(also known as Observer or Listener)?
 
-Publishers  are the entities who create/publish a message on a topic. 
-Subscribers are the entities who subscribe  to a messages on a topic.
+Publishers  are the entities who create/publish a message on a header. 
+Subscribers are the entities who subscribe  to a messages on a header.
 
-In a topic based Publish-Subscribe pattern, Publishers tag each message with the a topic instead of referencing specific Subscribers. 
-Messaging system then sends the message to all Subscribers who have asked to receive messages on that topic.
+In a header based Publish-Subscribe pattern, Publishers tag each message with the a header instead of referencing specific Subscribers. 
+Messaging system then sends the message to all Subscribers who have asked to receive messages on that header.
 
 Publishers only concern themselves with creating the original message and can leave the task of servicing the Subscribers to the messaging infrastructure (this is where pattern comes into picture).
 

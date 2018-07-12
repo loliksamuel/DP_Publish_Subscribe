@@ -21,13 +21,13 @@ public abstract class Subscriber {
             System.out.println("Message Topic -> " + message.getTopic() + " : " + message.getPayload());
         }
     }
-    //  subscribe for a topic using PubSubService
+    //  subscribe for a topic using MsgBroker
     public abstract void subscribe(String topic, PubSubService pubSubService);
 
-    //Unsubscribe from topic using PubSubService
+    //Unsubscribe from topic using MsgBroker
     public abstract void unSubscribe(String topic, PubSubService pubSubService);
 
-    //Request specifically for messages related to topic from PubSubService. sometimes called update or consume
+    //Request specifically for messages related to topic from MsgBroker. sometimes called update or consume
     public abstract void getUpdates(String topic, PubSubService pubSubService);
 
 }

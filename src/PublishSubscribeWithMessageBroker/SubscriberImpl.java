@@ -1,7 +1,7 @@
 package PublishSubscribeWithMessageBroker;
 
 public class SubscriberImpl extends Subscriber{
-    // subscribe with PubSubService for a topic
+    // subscribe with MsgBroker for a topic
     public void subscribe(String topic, PubSubService pubSubService) { pubSubService.addSubscriber(topic, this);   }
 
     //Unsubscribe from a topic
@@ -9,7 +9,7 @@ public class SubscriberImpl extends Subscriber{
         pubSubService.removeSubscriber(topic, this);
     }
 
-    //Request specifically for messages related to topic from PubSubService
+    //Request specifically for messages related to topic from MsgBroker
     public void getUpdates(String topic, PubSubService pubSubService)      { pubSubService.broadcastToSubscriberOfTopic(topic, this);
 
     }

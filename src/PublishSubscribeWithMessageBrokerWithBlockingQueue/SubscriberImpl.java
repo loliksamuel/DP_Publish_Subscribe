@@ -1,32 +1,36 @@
 package PublishSubscribeWithMessageBrokerWithBlockingQueue;
 
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class SubscriberImpl extends Subscriber implements Runnable{
 
-    private PubSubService_Interface pubSubService;
-    private String topic = null;
+    private MsgBroker_Interface msgBroker;
+    private Topic topic = null;
 
-    public SubscriberImpl(PubSubService_Interface pubSubService, String topic){
-        this.pubSubService=pubSubService;
-        this.topic = topic;
+    public SubscriberImpl(MsgBroker_Interface msgBroker, String name){
+        this.msgBroker = msgBroker;
+        this.setName(name);
+
     }
 
-    // subscribe with PubSubService for a topic
-    public void subscribe(String topic, PubSubService pubSubService) { pubSubService.addSubscriber(topic, this);   }
+    // subscribe with MsgBroker for a topic
+    public void subscribe(MsgBroker msgBroker, Topic topic) {
+        this.topic = topic;
+        msgBroker.addSubscriber(topic, this);   }
 
     //Unsubscribe from a topic
-    public void unSubscribe(String topic, PubSubService pubSubService){
-        pubSubService.removeSubscriber(topic, this);
+    public void unSubscribe(Topic topic, MsgBroker msgBroker){
+        msgBroker.removeSubscriber(topic, this);
     }
 
-    //Request specifically for messages related to topic from PubSubService
-    public Message getUpdates(String topic, PubSubService_Interface pubSubService) throws InterruptedException {
+    //Request specifically for messages related to topic from MsgBroker
+    public List<Message> getUpdates(Topic topic, MsgBroker_Interface msgBroker, Subscriber subscriber) throws InterruptedException {
 
-       // pubSubService.broadcastToSubscriberOfTopic(topic, this);
-        return pubSubService.getMessageFromQueue();
+       // msgBroker.broadcastToSubscriberOfTopic(topic, this);
+        return msgBroker.getMessageFromQueue(topic, subscriber);
 
 
     }
@@ -37,8 +41,9 @@ public class SubscriberImpl extends Subscriber implements Runnable{
         while(true){
 
             try {
-                Message msg = getUpdates(topic, pubSubService);
-                System.out.println("        consumed : "+msg.getTopic()+" : "+msg.getPayload());
+                 getUpdates(topic, msgBroker, this);
+
+                 //Thread.sleep(50);
             } catch (InterruptedException e) {
                 Logger.getLogger(Consumer.class.getName()).log(Level.SEVERE, null, e);
             }

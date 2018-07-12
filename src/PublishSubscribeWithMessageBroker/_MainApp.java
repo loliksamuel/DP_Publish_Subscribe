@@ -6,7 +6,7 @@ package PublishSubscribeWithMessageBroker;
 public class _MainApp {
     public static void main(String[] args) {
 
-        //Instantiate publishers, subscribers and PubSubService
+        //Instantiate publishers, subscribers and MsgBroker
         Publisher_Interface javaPublisher   = new Publisher_Impl();
         Publisher_Interface pythonPublisher = new Publisher_Impl();
 
@@ -16,7 +16,7 @@ public class _MainApp {
 
         PubSubService pubSubService = new PubSubService();
 
-        //Declare Messages and Publish Messages to PubSubService
+        //Declare Messages and Publish Messages to MsgBroker
         Message javaMsg1 = new Message("Java", "Core Java Concepts");
         Message javaMsg2 = new Message("Java", "Spring MVC : Dependency Injection and AOP");
         Message javaMsg3 = new Message("Java", "JPA & Hibernate");
@@ -40,7 +40,7 @@ public class _MainApp {
         //Trying unSubscribing a subscriber
         pythonLover.unSubscribe("Python", pubSubService);
 
-        //Broadcast message to all subscribers. After broadcastToAll, messageQueue will be empty in PubSubService
+        //Broadcast message to all subscribers. After broadcastToAll, messageQueue will be empty in MsgBroker
         pubSubService.broadcastToAll();
         System.out.println("broadcast To All successfully Done");
 
