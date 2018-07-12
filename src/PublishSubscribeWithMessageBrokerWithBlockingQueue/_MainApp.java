@@ -10,8 +10,8 @@ public class _MainApp {
         Topic topicJava             = new Topic("java  Topic");
         Topic topicScala            = new Topic("scala Topic");
         MsgBroker broker            = new MsgBroker();
-        Publisher_Impl publishJava  = new Publisher_Impl(broker, topicJava);
-        Publisher_Impl publishScala = new Publisher_Impl(broker, topicScala);
+        Publisher publishJava  = new Publisher(broker, topicJava);
+        Publisher publishScala = new Publisher(broker, topicScala);
         SubscriberImpl consJvm      = new SubscriberImpl(broker, "consJvm");
         SubscriberImpl consScala    = new SubscriberImpl(broker,"consScala");
 

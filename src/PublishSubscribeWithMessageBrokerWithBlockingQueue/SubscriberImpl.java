@@ -43,7 +43,7 @@ public class SubscriberImpl extends Subscriber implements Runnable{
             try {
                  getUpdates(topic, msgBroker, this);
 
-                 //Thread.sleep(50);
+                 Thread.sleep(50);
             } catch (InterruptedException e) {
                 Logger.getLogger(Consumer.class.getName()).log(Level.SEVERE, null, e);
             }

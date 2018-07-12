@@ -2,6 +2,7 @@ package PublishSubscribeWithMessageBrokerWithBlockingQueue;
 
 import java.util.*;
 import java.util.concurrent.BlockingQueue;
+import java.util.stream.Stream;
 
 /* MsgBroker
 sometimes called
@@ -64,24 +65,28 @@ public class MsgBroker implements MsgBroker_Interface {
     //get message sent by publisher to queue
     public List<Message> getMessageFromQueue(Topic topic, Subscriber subscriber) throws InterruptedException {
         List<Message> msgs = new ArrayList<>();
-        topics.stream ()
-              .filter (e->e.getSubscribers().contains(subscriber))
-              .forEach(e-> {
-                                try {
+        int count = topic.getQueue().size();
+        Stream<Topic> ts = topics.stream ()
+                                .filter (e->e.getSubscribers().contains(subscriber));
+        Iterator<Topic> topicsRelevant =  ts.iterator();
+
+        topicsRelevant.forEachRemaining(e-> {
+
                                     BlockingQueue<Message> bq = e.getQueue();
                                     if (!bq.isEmpty()) {
                                         Message m = new Message(bq.element().getHeader(), bq.element().getPayload());
-                                        System.out.println("subscriber " + subscriber.getName() + " consumed : " + m.getHeader() + " : " + m.getPayload());
+                                        System.out.println(count+ " messages left in queue. subscriber " + subscriber.getName() + " consumed : " + m.getHeader() + " : " + m.getPayload());
                                         msgs.add(m);
-                                        e.getQueue().take();
+
+                                        e.getQueue().remove();
+
                                     }
 
-                                } catch (InterruptedException e1) {
-                                    e1.printStackTrace();
-                                }
-        });
 
-             return msgs;
+        });
+        //topic.getQueue().take();
+
+        return msgs;
     }
 
 //    private Map<String, Map<Subscriber, BlockingQueue<Message>>> topics = new HashMap<>();
