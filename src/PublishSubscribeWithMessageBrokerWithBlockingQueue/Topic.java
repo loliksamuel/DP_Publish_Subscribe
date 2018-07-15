@@ -5,6 +5,7 @@ import java.util.Set;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 //A topic in kafka can be split into 1 or more partition
+//ordering is guranteed only in 1 partition
 public class Topic {
 
 
