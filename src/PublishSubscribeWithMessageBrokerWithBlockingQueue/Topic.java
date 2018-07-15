@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-
+//A topic in kafka can be split into 1 or more partition
 public class Topic {
 
 
