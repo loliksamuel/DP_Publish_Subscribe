@@ -78,7 +78,7 @@ public class MsgBroker implements MsgBroker_Interface {
                                         System.out.println(count+ " messages left in queue. subscriber " + subscriber.getName() + " consumed : " + m.getHeader() + " : " + m.getPayload());
                                         msgs.add(m);
 
-                                        e.getQueue().remove();
+                                        e.getQueue().remove();//in kafka the queue is a log that can be configured when to be removed
 
                                     }
 
