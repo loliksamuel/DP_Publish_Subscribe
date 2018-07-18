@@ -4,14 +4,14 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-//A topic in kafka can be split into 1 or more partition
+//A topic in kafka can be split into 1 or more partition(queue)
 //ordering is guranteed only in 1 partition
 public class Topic {
 
 
     private String name;
     private Set<Subscriber> subscribers = new HashSet<>();
-    private final BlockingQueue<Message> queue = new LinkedBlockingQueue<>();
+    private final BlockingQueue<Message> queue = new LinkedBlockingQueue<>();//can be partitioned to few queue on different machines in cluster
 
     public Topic(String name) {
         this.name = name;

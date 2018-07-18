@@ -7,7 +7,7 @@ public class ObserverBinary extends Observer{
     }
 
     @Override
-    public void update() {
+    public void getUpdates() {
         System.out.println( "new getUpdates in mail: Binari String changed to: " + Integer.toBinaryString( subject.getState() )+"("+subject.getState()+")" );
     }
 }

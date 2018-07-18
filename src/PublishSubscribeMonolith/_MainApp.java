@@ -15,7 +15,7 @@ public class _MainApp {
         System.out.println( "after subscribing 3 subscribers,");
         topic.addObserver(new Observer() {
             @Override
-            public void update() {
+            public void getUpdates() {
                 System.out.println("update2observer");
             }
         });

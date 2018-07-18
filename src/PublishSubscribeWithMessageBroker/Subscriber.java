@@ -5,7 +5,7 @@ import java.util.List;
 
 public abstract class Subscriber {
     //store all messages received by the subscriber
-    private List<Message> myMessages = new ArrayList<Message>();
+    private List<Message> myMessages = new ArrayList<>();
 
     public List<Message> getMyMessages() {
         return myMessages;
@@ -27,7 +27,7 @@ public abstract class Subscriber {
     //Unsubscribe from topic using MsgBroker
     public abstract void unSubscribe(String topic, PubSubService pubSubService);
 
-    //Request specifically for messages related to topic from MsgBroker. sometimes called update or consume
+    //Request specifically for messages related to topic from MsgBroker. sometimes called getUpdates or consume
     public abstract void getUpdates(String topic, PubSubService pubSubService);
 
 }
