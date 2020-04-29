@@ -20,5 +20,5 @@ see other reactive streams projects (build with functional pipeline & lazy evalu
 - Akka - https://github.com/akka/akka
 - https://www.youtube.com/watch?v=kG2SEcl1aMM
 
-<img src="javaStreamVsReactiveStream.png">
+<img src="javaStream_Vs_ReactiveStream.png">
 
