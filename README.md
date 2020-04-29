@@ -17,6 +17,7 @@ see other reactive streams projects:
 - project spring reactor - https://github.com/reactor/projectreactor.io
 - rxjava - https://github.com/ReactiveX/RxJava
 - vertex - https://github.com/eclipse-vertx/vert.x
+- akka - https://github.com/akka/akka
 - https://www.youtube.com/watch?v=kG2SEcl1aMM
 
 <img src="javaStreamVsReactiveStream.png">
