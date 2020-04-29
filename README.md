@@ -5,7 +5,8 @@ Publishers  are the entities who create/publish a message on a header.
 Subscribers are the entities who subscribe  to a messages on a header.
 
 see other projects:
-- project reactor - https://github.com/reactor/projectreactor.io
+- java 9 reactive streams - https://github.com/reactive-streams/reactive-streams-jvm
+- project spring reactor - https://github.com/reactor/projectreactor.io
 - rxjava - https://github.com/ReactiveX/RxJava
 - vertex - https://github.com/eclipse-vertx/vert.x
 
