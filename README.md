@@ -4,9 +4,10 @@ What is pattern publish subscribe (also known as Observer or Listener)?
 Publishers  are the entities who create/publish a message on a header. 
 Subscribers are the entities who subscribe  to a messages on a header.
 
-see project reactor:
+see other projects:
+- project reactor - https://github.com/reactor/projectreactor.io
 - rxjava - https://github.com/ReactiveX/RxJava
-- vertex
+- vertex - https://github.com/eclipse-vertx/vert.x
 
 In a header based Publish-Subscribe pattern, Publishers tag each message with the a header instead of referencing specific Subscribers. 
 Messaging system then sends the message to all Subscribers who have asked to receive messages on that header.
