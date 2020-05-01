@@ -24,9 +24,9 @@ see other reactive streams projects (build with functional pipeline & lazy evalu
 
 `
 public interface Subscriber<T> {
-    public void onSubscribe(Subscription s);
-    public void onNext(T t);
-    public void onError(Throwable t);
-    public void onComplete();
-}
+    - public void onSubscribe(Subscription s);
+    - public void onNext(T t);
+    - public void onError(Throwable t);
+    - public void onComplete();
+- }
 `
