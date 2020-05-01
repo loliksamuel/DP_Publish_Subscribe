@@ -22,14 +22,14 @@ see other reactive streams projects (build with functional pipeline & lazy evalu
 public interface Publisher<T> {
     public void subscribe(Subscriber<? super T> s);
 }
-public interface Subscriber<T> {
+public interface Subscriber<T> {//with 3 channels
      public void onSubscribe(Subscription s);
-     public void onNext(T t);
-     public void onError(Throwable t);
-     public void onComplete();
+     public void onNext(T t);//data
+     public void onComplete();//all finished successfully
+     public void onError(Throwable t);//to deal with exceptions
  }
  public interface Subscription {
-    public void request(long n);
+    public void request(long n);//back pressure support
     public void cancel();
 }
 public interface Processor<T, R> extends Subscriber<T>, Publisher<R> {
