@@ -10,7 +10,7 @@ public class ObservableTopic implements Observable_Interface{
     private List<Observer> observers = new ArrayList<Observer>();
 
     // can be any state of the subject. like new article in site, or new goal in football game, or a new medicine in shop
-    private int state;
+    private int state;//sometimes called msg
 
     //get the state
     public int getState() {

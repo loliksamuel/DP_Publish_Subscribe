@@ -1,4 +1,4 @@
-package PublishSubscribeWithMessageBroker;
+package PublishSubscribeWithMessageBrokerCustom;
 
 import java.util.HashMap;
 import java.util.HashSet;

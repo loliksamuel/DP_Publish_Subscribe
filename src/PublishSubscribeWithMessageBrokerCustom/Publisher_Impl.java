@@ -1,4 +1,4 @@
-package PublishSubscribeWithMessageBroker;
+package PublishSubscribeWithMessageBrokerCustom;
 
 public class Publisher_Impl implements Publisher_Interface {
     //Publishes new message to MsgBroker

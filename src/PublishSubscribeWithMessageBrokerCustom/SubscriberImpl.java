@@ -1,4 +1,4 @@
-package PublishSubscribeWithMessageBroker;
+package PublishSubscribeWithMessageBrokerCustom;
 
 public class SubscriberImpl extends Subscriber{
     // subscribe with MsgBroker for a topic

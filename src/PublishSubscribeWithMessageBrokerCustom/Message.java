@@ -1,4 +1,4 @@
-package PublishSubscribeWithMessageBroker;
+package PublishSubscribeWithMessageBrokerCustom;
 
 /**
  * Created by lolik on 2017-04-04.
