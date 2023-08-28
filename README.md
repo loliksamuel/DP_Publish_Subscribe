@@ -1,8 +1,8 @@
-# DP_Publish_Subscribe
+# DP Publish Subscribe
 What is pattern publish subscribe (also known as Observer or Listener)?
 
 Publishers  are the entities who create/publish a message on a header. 
-Subscribers are the entities who subscribe  to a messages on a header.
+Subscribers/listeners/observers are the entities who subscribe  to a messages on a header.
 
 
 In a header based Publish-Subscribe pattern, Publishers tag each message with the a header instead of referencing specific Subscribers. 
@@ -14,10 +14,11 @@ Publishers only concern themselves with creating the original message and can le
 
 see other reactive streams projects (build with functional pipeline & lazy evaluation):
 - RxJava - https://github.com/ReactiveX/RxJava
-- Vert.x - https://github.com/eclipse-vertx/vert.x (wrapper over RxJava
+- Vert.x - https://github.com/eclipse-vertx/vert.x (wrapper over RxJava)
 - Akka - https://github.com/akka/akka
 - Java 9 reactive streams - https://github.com/reactive-streams/reactive-streams-jvm
 - Spring reactor - https://github.com/reactor/projectreactor.io
+- Kafka
 ```
 public interface Publisher<T> {
     public void subscribe(Subscriber<? super T> s);
